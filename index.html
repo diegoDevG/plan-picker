@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vue components</title>
+    <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+    <div id="app">
+        <h1>vue.js components fundamentals</h1>
+        <plan-picker></plan-picker>
+    </div>
+</body>
+
+<script type='text/x-template' id='plan-picker-component'>
+    <div class="plans">
+        <plan 
+            v-for="plan in plans" 
+            :key='plan' 
+            :name="plan" 
+            @select="selectPlan"
+            :selectedPlan="selectedPlan"
+        >
+        </plan>
+    </div>
+</script>
+
+<script type="text/x-template" id="plan-template">
+    <div class="plan" :class="{'active-plan' : isSelected}" @click='select' >
+        <div class="description">
+            <span class="title">
+                {{name}}
+            </span>
+        </div>
+    </div>
+</script>
+
+<script src="https://unpkg.com/vue"></script>
+<script src="app.js"></script>
+</html>
